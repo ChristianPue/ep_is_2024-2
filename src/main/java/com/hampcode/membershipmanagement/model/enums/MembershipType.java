@@ -1,5 +1,8 @@
 package com.hampcode.membershipmanagement.model.enums;
 
-public enum MembershipType {
-
+public enum MembershipType 
+{
+  BASIC,
+  PREMIUM,
+  VIP
 }
