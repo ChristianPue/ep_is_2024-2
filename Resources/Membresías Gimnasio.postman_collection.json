@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "b75e713d-1cc5-4468-8b3e-40c9b18c0e56",
+		"name": "Membresías Gimnasio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6246033"
+	},
+	"item": [
+		{
+			"name": "Registrar membresía",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"memberName\": \"Juan Perez\",\r\n  \"membershipType\": \"BASICA\",\r\n  \"monthsSubscribed\": 12,\r\n  \"membershipPrice\": 100.0,\r\n  \"description\": \"Membresía anual básica\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/memberships",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"memberships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar visita",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/memberships/1/visit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"memberships",
+						"1",
+						"visit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar membresías por tipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/memberships?membershipType=BASICA",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"memberships"
+					],
+					"query": [
+						{
+							"key": "membershipType",
+							"value": "BASICA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reporte de estadísticas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/memberships/statistics",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"memberships",
+						"statistics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar membresía",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/memberships/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"memberships",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api/v1",
+			"type": "string"
+		}
+	]
+}
