@@ -1,10 +1,14 @@
-package com.hampcode.membershipmanagement.model.entity;
+package com.api.example.model.entity;
+
+import com.api.example.model.enums.MembershipType;
 
 import jakarta.persistence.Entity;
-
-import com.hampcode.membershipmanagement.model.enums.MembershipType;
-
-import jakarta.persistence.*;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,14 +26,14 @@ public class Membership {
   private Long id;
 
   private String memberName;
-  
+
+  @Enumerated(EnumType.STRING)
   private MembershipType membershipType;
 
   private int monthsSubscribed;
 
   private int monthsRemaining;
-
-  @Enumerated(EnumType.STRING)
+  
   private Double membershipPrice;
 
   private int monthlyVisits;

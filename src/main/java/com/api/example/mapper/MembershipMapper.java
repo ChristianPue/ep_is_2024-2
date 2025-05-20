@@ -1,11 +1,14 @@
-package com.hampcode.membershipmanagement.mapper;
+package com.api.example.mapper;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.hampcode.membershipmanagement.dto.request.RegisterMembershipRequest;
-import com.hampcode.membershipmanagement.dto.response.RegisterMembershipResponse;
-import com.hampcode.membershipmanagement.model.entity.Membership;
-import com.hampcode.membershipmanagement.model.enums.MembershipType;
+import com.api.example.dto.request.RegisterMembershipRequest;
+import com.api.example.dto.response.MembershipResponse;
+import com.api.example.model.entity.Membership;
+import com.api.example.model.enums.MembershipType;
 
 @Component
 public class MembershipMapper {
@@ -27,10 +30,10 @@ public class MembershipMapper {
   }
 
   // Convertir "Membership" a "MembershipResponse"
-  public RegisterMembershipResponse toRegisterMembershipResponse(Membership membership){
+  public MembershipResponse toMembershipResponse(Membership membership){
     if (membership == null) { return null; }
 
-    return new RegisterMembershipResponse(
+    return new MembershipResponse(
       membership.getId(),
       membership.getMemberName(),
       membership.getMembershipType(),
@@ -40,5 +43,12 @@ public class MembershipMapper {
       membership.getMonthlyVisits(),
       membership.getDescription()
     );
+  }
+
+  // Convertir "List<Membership>" a "List<MembershipResponse>"
+  public List<MembershipResponse> toMembershipsResponse(List<Membership> list) {
+    if (list == null) { return null; }
+
+    return list.stream().map(this::toMembershipResponse).collect(Collectors.toList());
   }
 }

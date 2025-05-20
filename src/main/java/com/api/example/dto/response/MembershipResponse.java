@@ -1,8 +1,8 @@
-package com.hampcode.membershipmanagement.dto.response;
+package com.api.example.dto.response;
 
-import com.hampcode.membershipmanagement.model.enums.MembershipType;
+import com.api.example.model.enums.MembershipType;
 
-public record RegisterMembershipResponse(
+public record MembershipResponse(
   Long id,
   String memberName,
   MembershipType membershipType,
@@ -11,4 +11,4 @@ public record RegisterMembershipResponse(
   Double membershipPrice,
   int monthlyVisits,
   String description
-){}
+) {}

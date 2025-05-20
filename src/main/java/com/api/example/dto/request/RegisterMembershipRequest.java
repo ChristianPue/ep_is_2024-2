@@ -1,4 +1,4 @@
-package com.hampcode.membershipmanagement.dto.request;
+package com.api.example.dto.request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -11,7 +11,7 @@ public record RegisterMembershipRequest(
   String memberName,
   
   @NotBlank(message = "El tipo del miembro no puede ser vacío.")
-  @Pattern(regexp = "^(BASIC|PREMIUM|VIP)$", message = "El tipo de miembre puede ser BASIC, PREMIUM o VIP.")
+  @Pattern(regexp = "^(BASICA|PREMIUM|VIP)$", message = "El tipo de miembre puede ser BASICA, PREMIUM o VIP.")
   String membershipType,
 
   @NotNull(message = "La cantidad de meses no puede ser nula.")
@@ -24,4 +24,4 @@ public record RegisterMembershipRequest(
 
   @NotBlank(message = "La descripción no puede ser vacía.")
   String description
-){}
+) {}
