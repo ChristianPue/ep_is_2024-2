@@ -40,11 +40,22 @@ public class MembershipController {
     return new ResponseEntity<>(service.registerMembershipVisit(id), HttpStatus.ACCEPTED);
   }
 
+  // En Postman: "?membershipType=BASICA"
+  // Params: Key | Value | Description
+  //  membershipType | BASICA | ...
   @GetMapping
   public ResponseEntity<List<MembershipResponse>> getListMembershipByMembershipType(@RequestParam String membershipType) {
     return new ResponseEntity<>(service.getListMembershipByMembershipType(membershipType), HttpStatus.OK);
   }
-
+  // Para dos o más parámetros agregar "&"
+  // Postman: "/filter?membershipType=VIP&minVisits=5&maxVisits=20"
+  // Params: Key | Value | Description
+  //  membershipType | VIP | ...
+  //  minVisits      | 5      | ...
+  //  maxVisits      | 20     | ...
+  // @GetMapping("/filter")
+  // ...
+  
   @GetMapping("/statistics")
   public ResponseEntity<List<StadisticReportResponse>> statisticsReportByMembershipType() {
     return new ResponseEntity<>(service.statisticsReportByMembershipType(), HttpStatus.OK);
